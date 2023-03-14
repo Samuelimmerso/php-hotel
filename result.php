@@ -44,8 +44,12 @@ $hotels = [
 // controllo l'esistenza dei parametri GET 
 $parking = isset($_GET["parking"]) ? true : false;
 $review = $_GET["review"];
+
+//salvataggio hotel da stampare a schermo
 $hotel_Printed = [];
 
+
+//controllo presenza parcheggi e voto minimo desiderato
 foreach($hotels as $hotel){ 
     if($hotel["parking"] == $parking){
         if($hotel["vote"] >= $review){
@@ -54,20 +58,6 @@ foreach($hotels as $hotel){
     }
 }
 
-
-
-
-
-// foreach($hotels as $hotels_list){
-//     foreach($hotels_list as $hotel){
-//         // if($hotel["parking"]==$parking){
-//         //     if($hotel["vote"] >= $review){
-//         //         echo $hotel;
-//         //     }
-//         // }
-//         echo $hotel;
-//     }
-// }
 
 ?>
 
@@ -82,6 +72,8 @@ foreach($hotels as $hotel){
 </head>
 <body>
     
+
+    <!-- stampa -->
     <?php foreach($hotel_Printed as $hotel){ ?>
         <?php foreach($hotel as $hotel_desc){ ?>
             
@@ -89,15 +81,6 @@ foreach($hotels as $hotel){
         <?php } ?>
         <br>
     <?php } ?>
-
-
-
-<!-- // if($hotel["parking"]==$parking){
-        //     if($hotel["vote"] >= $review){
-        //         echo $hotel;
-        //     }
-        // } -->
-
 
 </body>
 </html>
