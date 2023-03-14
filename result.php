@@ -42,13 +42,62 @@ $hotels = [
 ];
 
 // controllo l'esistenza dei parametri GET 
-$parking = isset($_GET["parking"]);
+$parking = isset($_GET["parking"]) ? true : false;
 $review = $_GET["review"];
+$hotel_Printed = [];
 
-echo $parking;
-
-if($parking){
-
+foreach($hotels as $hotel){ 
+    if($hotel["parking"] == $parking){
+        if($hotel["vote"] >= $review){
+            array_push($hotel_Printed,$hotel);
+        }
+    }
 }
 
+
+
+
+
+// foreach($hotels as $hotels_list){
+//     foreach($hotels_list as $hotel){
+//         // if($hotel["parking"]==$parking){
+//         //     if($hotel["vote"] >= $review){
+//         //         echo $hotel;
+//         //     }
+//         // }
+//         echo $hotel;
+//     }
+// }
+
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <?php foreach($hotel_Printed as $hotel){ ?>
+        <?php foreach($hotel as $hotel_desc){ ?>
+            
+            <h1><?= $hotel_desc ?></h1>
+        <?php } ?>
+        <br>
+    <?php } ?>
+
+
+
+<!-- // if($hotel["parking"]==$parking){
+        //     if($hotel["vote"] >= $review){
+        //         echo $hotel;
+        //     }
+        // } -->
+
+
+</body>
+</html>

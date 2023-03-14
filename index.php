@@ -18,10 +18,10 @@
     <form action="./result.php" method="GET">
 
           <!-- parking -->
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="parking" checked>
-          <label class="form-check-label" for="flexCheckChecked" name="parking" for="parking">
-            Presenza Parcheggi
-          </label>
+          <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="parking">
+          <label class="form-check-label" for="flexSwitchCheckDefault">Parcheggi</label>
+          </div>
 
           <!-- review -->
           <select class="form-select" aria-label="Default select example" name="review" for="review">
@@ -33,7 +33,7 @@
             <option value="5">5</option>
           </select>
 
-        <button class="btn btn-danger">Invia il form</button>
+        <button class="btn btn-danger ">Invia il form</button>
         
       </form>
 
